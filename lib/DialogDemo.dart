@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widget_demo/CommonWidgets/CommonWidgets.dart';
 class DialogDemo extends StatefulWidget {
   @override
   _DialogDemoState createState() => _DialogDemoState();
@@ -31,9 +32,7 @@ class _DialogDemoState extends State<DialogDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Dialog Demo"),
-      ),
+      appBar: getAppBar("Dialog Demo"),
       body: Container(
         padding: const EdgeInsets.all(8.0),
         child: Column(

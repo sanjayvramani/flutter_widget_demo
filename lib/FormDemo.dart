@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_widget_demo/CommonWidgets/CommonWidgets.dart';
 
 class FormDemo extends StatefulWidget {
   @override
@@ -24,9 +25,7 @@ class _FormDemoState extends State<FormDemo> {
 
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Form Demo"),
-      ),
+      appBar: getAppBar("Form Demo"),
       body: Form(
           key: _formState,
           child: Container(
