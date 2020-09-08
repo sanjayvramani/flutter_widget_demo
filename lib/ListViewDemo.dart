@@ -32,11 +32,27 @@ class _ListViewDemoState extends State<ListViewDemo> {
        
        child: ListView.builder(
          itemCount: lstCity.length,
+         //scrollDirection: Axis.horizontal,
          itemBuilder: (context,index){
            return Card(
              child: Container(
-               
-               child: Row(
+
+               child: ListTile(
+                 onTap: (){
+                   print(lstCity[index]);
+                 },
+                 leading: CircleAvatar(
+                   backgroundColor: Colors.blue,
+                   //child: Image.asset(index%2==0?"assets/images/fb.png":"assets/images/google.png"),
+                   //child: Image.network("https://a.trellocdn.com/prgb/dist/images/ios/apple-touch-icon-152x152-precomposed.0307bc39ec6c9ff499c8.png",),
+                   child: Text(lstCity[index][0]),
+                 ),
+                trailing: Icon(Icons.delete,color: Colors.red,size: 48.0,),
+                title: Text(lstCity[index]),
+                 subtitle: Text("$index"),
+               ),
+
+               /*child: Row(
                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                  children: [
                    Text(lstCity[index],style: TextStyle(fontSize: 24.0),),
@@ -45,7 +61,7 @@ class _ListViewDemoState extends State<ListViewDemo> {
                          removeCity(index);
                        })
                  ]
-               ),
+               ),*/
                
              ),
            );
