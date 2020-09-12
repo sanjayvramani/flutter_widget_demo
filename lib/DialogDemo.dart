@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_demo/CommonWidgets/CommonWidgets.dart';
 class DialogDemo extends StatefulWidget {
+  static String TAG="dialogdemo";
   @override
   _DialogDemoState createState() => _DialogDemoState();
 }

@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_demo/CommonWidgets/CommonWidgets.dart';
+import 'package:flutter_widget_demo/UserInfo.dart';
 
 class FormDemo extends StatefulWidget {
+  static String TAG="formdemo";
   @override
   _FormDemoState createState() => _FormDemoState();
 }
@@ -30,18 +32,20 @@ class _FormDemoState extends State<FormDemo> {
           key: _formState,
           child: Container(
             padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                _getTextFormField(_txtName,"Name",Icon(Icons.person)),
-                SizedBox(height: 8.0,),
-                _getTextFormField(_txtEmailId,"Email Id",Icon(Icons.email)),
-                SizedBox(height: 8.0,),
-                _getTextFormField(_txtMobileNumber,"Mobile Number",Icon(Icons.phone)),
-                SizedBox(height: 8.0,),
-                _getTextFormField(_txtPassword,"Password",Icon(Icons.lock),obsecure: true),
-                SizedBox(height: 8.0,),
-                btnSubmit
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  _getTextFormField(_txtName,"Name",Icon(Icons.person)),
+                  SizedBox(height: 8.0,),
+                  _getTextFormField(_txtEmailId,"Email Id",Icon(Icons.email)),
+                  SizedBox(height: 8.0,),
+                  _getTextFormField(_txtMobileNumber,"Mobile Number",Icon(Icons.phone)),
+                  SizedBox(height: 8.0,),
+                  _getTextFormField(_txtPassword,"Password",Icon(Icons.lock),obsecure: true),
+                  SizedBox(height: 8.0,),
+                  btnSubmit
+                ],
+              ),
             ),
           )),
     );
@@ -51,7 +55,21 @@ void submitForm()
 {
   if(_formState.currentState.validate())
     {
-      print("All is well");
+      //print("All is well");
+
+      var map={
+        "name":_txtName.text,
+        "email":_txtEmailId.text,
+        "mobile":_txtMobileNumber.text,
+        "password":_txtPassword.text
+      };
+
+      //Navigator.of(context).push(MaterialPageRoute(builder: (context)=>UserInfo(map: map,)));
+
+      Navigator.pushNamed(context,UserInfo.TAG,arguments: map);
+
+
+
     }
   else
     {
